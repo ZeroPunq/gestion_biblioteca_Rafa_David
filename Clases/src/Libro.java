@@ -6,6 +6,13 @@ public class Libro {
     private String titulo;
     private String isbn;
 
+    public Libro(int ID, String titulo, String isbn){
+        this.ID = ID;
+        this.titulo = titulo;
+        this.isbn = isbn;
+
+    }
+
     public int getID() {
         return ID;
     }
@@ -30,12 +37,7 @@ public class Libro {
         this.isbn = isbn;
     }
 
-    public Libro(int ID, String titulo, String isbn){
-        this.ID = ID;
-        this.titulo = titulo;
-        this.isbn = isbn;
 
-    }
 
     @Override
     public String toString() {
