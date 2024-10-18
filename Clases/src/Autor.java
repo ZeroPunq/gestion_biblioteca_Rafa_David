@@ -1,9 +1,11 @@
 package Clases.src;
 
 public class Autor {
+    private int ID;
     private String nombre;
 
-    public Autor(String nombre){
+    public Autor(int ID, String nombre) {
+        this.ID = ID;
         this.nombre = nombre;
     }
 
@@ -15,10 +17,19 @@ public class Autor {
         this.nombre = nombre;
     }
 
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
     @Override
     public String toString() {
         return "Autor{" +
-                "nombre='" + nombre + '\'' +
+                "ID=" + ID +
+                ", nombre='" + nombre + '\'' +
                 '}';
     }
 }

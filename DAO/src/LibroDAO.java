@@ -58,8 +58,13 @@ public class LibroDAO {
     public int update (Libro l){
         String SQL = "UPDATE Libro SET Nombre = ? WHERE ID = ?";
         try{
-
+            PreparedStatement ps = Conexion.conectar().prepareStatement(SQL);
+            ps.setInt(1,l.getID());
+            ps.setString(2, l.getTitulo());
+            ps.setString(3, l.getIsbn());
+            return 1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
-
 }
