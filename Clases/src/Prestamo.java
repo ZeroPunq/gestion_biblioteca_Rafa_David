@@ -6,6 +6,32 @@ public class Prestamo {
     private int ID;
     private Date fechaInicio;
     private Date fechaFinal;
+    private int idUsuario;
+    private int idLibro;
+
+    public Prestamo(int ID, Date fechaInicio, Date fechaFinal, int idUsuario, int idLibro) {
+        this.ID = ID;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.idUsuario = idUsuario;
+        this.idLibro = idLibro;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public int getIdLibro() {
+        return idLibro;
+    }
+
+    public void setIdLibro(int idLibro) {
+        this.idLibro = idLibro;
+    }
 
     public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
