@@ -8,7 +8,6 @@ import DAO.src.AutorDAO;
 import DAO.src.LibroDAO;
 import DAO.src.PrestamoDAO;
 import DAO.src.UsuarioDAO;
-
 import java.util.ArrayList;
 
 public class BibliotecaService {
@@ -59,6 +58,29 @@ public class BibliotecaService {
         if(resultado == 1){
             int indice = this.usuarios.indexOf(u);
             this.usuarios.set(indice,u);
+            return 1;
+        }
+        return -1;
+    }
+    public ArrayList<Prestamo> selectPrestamos(){
+        return prestamos;
+    }
+
+    public int insertPrestamo(Prestamo p){
+        int resultado = 0;
+        resultado= prestamoDAO.insert(p);
+        if(resultado==1){
+            prestamos.add(p);
+            return 1;
+        }
+        return -1;
+    }
+
+    public int deletePrestamo(Prestamo p){
+        int resultado = 0;
+        resultado = prestamoDAO.delete(p.getID());
+        if(resultado==1){
+            prestamos.remove(p);
             return 1;
         }
         return -1;
