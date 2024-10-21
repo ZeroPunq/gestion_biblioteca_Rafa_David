@@ -29,13 +29,12 @@ public class Libro_AutorDAO {
         }
     }
 
-    public int insert(Libro l){
-        String SQL = "INSERT INTO Libro VALUES (?, ?, ?)";
+    public int insert(Libro_Autor la){
+        String SQL = "INSERT INTO Libro_Autor VALUES (?, ?)";
         try{
             PreparedStatement ps = Conexion.conectar().prepareStatement(SQL);
-            ps.setInt(1,l.getID());
-            ps.setString(2,l.getTitulo());
-            ps.setString(3,l.getIsbn());
+            ps.setInt(1,la.getIdAutor());
+            ps.setInt(2,la.getIdLibro());
             ps.execute();
             return 1;
         } catch (SQLException e) {
