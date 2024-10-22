@@ -94,7 +94,7 @@ public class Menu {
                     System.out.println("ID:");
                     int idl = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("Nombre:");
+                    System.out.println("Titulo:");
                     String til =sc.nextLine();
                     System.out.println("ISBN:");
                     String isbnl =sc.nextLine();
@@ -104,9 +104,17 @@ public class Menu {
                     System.out.println(bs.obtenerLibros());
                     break;
                 case 3 :
-                    System.out.println("Introduce los datos del libro a modificar. (ID y Nombre)");
-                    bs.actualizarLibro(new Libro(sc.nextInt(),sc.nextLine(),sc.nextLine()));
+                    System.out.println("Introduce el nuevo Titulo y ISBN para un ID determinada.");
+                    System.out.println("ID:");
+                    int idml = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Titulo nuevo:");
+                    String timl =sc.nextLine();
+                    System.out.println("ISBN nuevo:");
+                    String isbnml =sc.nextLine();
+                    bs.agregarLibro(new Libro(idml,timl,isbnml));
                     break;
+
                 case 4:
                     System.out.println("Introduce la id y el título del libro a eliminar");
                     System.out.println("Introduce la id: ");
