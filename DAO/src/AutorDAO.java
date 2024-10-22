@@ -16,7 +16,7 @@ public class AutorDAO {
     }
     public ArrayList<Autor> selectAll(){
         ArrayList<Autor> autores = null;
-        String SQL = "SELECT * FROM autor";
+        String SQL = "SELECT * FROM Autor";
         try{
             PreparedStatement ps = Conexion.conectar().prepareStatement(SQL);
             ps.execute();
