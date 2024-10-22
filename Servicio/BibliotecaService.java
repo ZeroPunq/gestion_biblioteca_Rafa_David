@@ -1,13 +1,8 @@
 package Servicio;
 
-import Clases.src.Autor;
-import Clases.src.Libro;
-import Clases.src.Prestamo;
-import Clases.src.Usuario;
-import DAO.src.AutorDAO;
-import DAO.src.LibroDAO;
-import DAO.src.PrestamoDAO;
-import DAO.src.UsuarioDAO;
+import Clases.src.*;
+import DAO.src.*;
+
 import java.util.ArrayList;
 
 public class BibliotecaService {
@@ -19,7 +14,8 @@ public class BibliotecaService {
     public ArrayList<Prestamo> prestamos;
     public UsuarioDAO usuarioDAO;
     public ArrayList<Usuario> usuarios;
-
+    public Libro_AutorDAO libroAutorDAO;
+    public ArrayList<Libro_Autor>libroAutors;
     public BibliotecaService() {
         this.autorDAO = new AutorDAO();
         this.autores = autorDAO.selectAll();
@@ -29,6 +25,8 @@ public class BibliotecaService {
         this.prestamos = prestamoDAO.selectAll();
         this.usuarioDAO = new UsuarioDAO();
         this.usuarios = usuarioDAO.selectAll();
+        this.libroAutorDAO= new Libro_AutorDAO();
+        this.libroAutors= libroAutorDAO.selectAll();
     }
     public ArrayList<Usuario> selectUsuario(){
         return usuarios;
