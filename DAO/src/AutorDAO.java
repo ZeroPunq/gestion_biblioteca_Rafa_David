@@ -45,11 +45,10 @@ public class AutorDAO {
         }
     }
     public int delete(int id){
-        String SQL = "DELETE INTO Autor VALUES (?, ?)";
+        String SQL = "DELETE FROM Autor WHERE id = ?";
         try{
             PreparedStatement ps = Conexion.conectar().prepareStatement(SQL);
             ps.setInt(1,id);
-            ps.setString(2,"nombre");
             ps.execute();
             return 1;
         } catch (SQLException e) {
