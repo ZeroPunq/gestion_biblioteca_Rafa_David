@@ -75,5 +75,40 @@ public class Menu {
             }
         }while (op!=0);
     }
+    public void menuLibro(){
+        int op;
+        do{
+            System.out.println("Menu Libro");
+            System.out.println("1.- Añadir Prestamo");
+            System.out.println("2.- Ver Prestamos");
+            System.out.println("3.- Modificar Prestamos");
+            System.out.println("4.- Borrar Prestamos");
+            System.out.println("0.- Volver al menu principal");
+
+            op =sc.nextInt();
+            switch (op){
+                case 1:
+
+                    System.out.println("Inserte datos del Prestamo (ID,Fecha Inicio(YYYY-MM-DD), Fecha Fin(YYYY-MM-DD), Id Usuario , Id Libro) :");
+                    bs.insertPrestamo(new Prestamo(sc.nextInt(),Date.valueOf(sc.nextLine()),Date.valueOf(sc.nextLine()),sc.nextInt(), sc.nextInt()));
+                    break;
+                case 2 :
+                    System.out.println(bs.selectPrestamos());
+                    break;
+                case 3 :
+                    System.out.println("Introduce la id del prestamo a eliminar");
+                    bs.deletePrestamo(new Prestamo(sc.nextInt(),Date.valueOf(sc.nextLine()),Date.valueOf(sc.nextLine()),sc.nextInt(), sc.nextInt()));
+                    break;
+                case 4:
+                    System.out.println("Introduce la id del prestamo a eliminar");
+                    bs.deletePrestamo(new Prestamo(sc.nextInt(),Date.valueOf(sc.nextLine()),Date.valueOf(sc.nextLine()),sc.nextInt(), sc.nextInt()));
+                    break;
+                case 0 :
+                    menu();
+                    break;
+            }
+        }while (op!=0);
+    }
+
 
 }
