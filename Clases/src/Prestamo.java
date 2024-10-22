@@ -1,6 +1,7 @@
 package Clases.src;
 
 import java.sql.Date;
+import java.util.Objects;
 
 public class Prestamo {
     private int ID;
@@ -55,6 +56,19 @@ public class Prestamo {
 
     public Date getFechaFinal() {
         return fechaFinal;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Prestamo prestamo = (Prestamo) o;
+        return ID == prestamo.ID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(ID);
     }
 
     @Override

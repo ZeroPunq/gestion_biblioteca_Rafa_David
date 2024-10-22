@@ -1,5 +1,7 @@
 package Clases.src;
 
+import java.util.Objects;
+
 public class Libro {
 
     private int ID;
@@ -36,7 +38,18 @@ public class Libro {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Libro libro = (Libro) o;
+        return ID == libro.ID;  // Comparar por ID u otro campo único
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(ID); // Hash basado en el ID
+    }
 
 
     @Override
