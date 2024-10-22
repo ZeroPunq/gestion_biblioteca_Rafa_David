@@ -20,7 +20,7 @@ public class PrestamoDAO {
             ResultSet rs = ps.getResultSet();
             prestamos= new ArrayList<>();
             while (rs.next()){
-                Prestamo p =new Prestamo(rs.getInt("ID"),rs.getDate("fechaInicio"),rs.getDate("fechaFin"),rs.getInt("idUsuario"),rs.getInt("idLibro"));
+                Prestamo p =new Prestamo(rs.getInt("ID"),rs.getDate("fechaInicio"),rs.getDate("fechaFin"),rs.getInt("usuarioId"),rs.getInt("libroId"));
                 prestamos.add(p);
             }
             return prestamos;
