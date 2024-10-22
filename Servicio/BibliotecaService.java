@@ -176,8 +176,11 @@ public class BibliotecaService {
         resultado = autorDAO.update(a);
         if (resultado ==1){
             int indice = this.autores.indexOf(a);
-            this.autores.set(indice,a);
-            return 1;
+            if (indice != -1) {
+                this.autores.set(indice, a);  // Actualizamos el autor en la lista
+            } else {
+                System.out.println("El autor no se encontró en la lista local.");
+            }
         }
         return -1;
     }
