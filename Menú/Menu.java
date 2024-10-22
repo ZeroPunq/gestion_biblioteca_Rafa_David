@@ -91,7 +91,14 @@ public class Menu {
                 case 1:
 
                     System.out.println("Inserte datos del Libro (ID,Titulo, ISBN) :");
-                    bs.agregarLibro(new Libro(sc.nextInt(),sc.nextLine(),sc.nextLine()));
+                    System.out.println("ID:");
+                    int idl = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Nombre:");
+                    String til =sc.nextLine();
+                    System.out.println("ISBN:");
+                    String isbnl =sc.nextLine();
+                    bs.agregarLibro(new Libro(idl,til,isbnl));
                     break;
                 case 2 :
                     System.out.println(bs.obtenerLibros());
