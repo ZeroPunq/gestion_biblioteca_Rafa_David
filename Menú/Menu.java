@@ -191,10 +191,10 @@ public class Menu {
                 case 1:
 
                     System.out.println("Inserte datos del Autor(ID, Nombre) :");
-                    System.out.println("ID");
+                    System.out.println("ID:");
                     int ida = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("Nombre");
+                    System.out.println("Nombre:");
                     String a =sc.nextLine();
                     bs.agregarAutor(new Autor(ida,a));
                     break;
@@ -203,10 +203,10 @@ public class Menu {
                     break;
                 case 3 :
                     System.out.println("Introduce los datos a modificar. (ID y Nombre)");
-                    System.out.println("ID");
+                    System.out.println("ID:");
                     int ida1 = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("Nombre");
+                    System.out.println("Nombre:");
                     String a1 =sc.nextLine();
                     bs.actualizarAutor(new Autor(ida1, a1));
                     break;
