@@ -44,7 +44,7 @@ public class LibroDAO {
         }
     }
     public int delete(int id){
-        String SQL = "DELETE INTO Libro VALUES (?, ?, ?)";
+        String SQL = "DELETE FROM Libro WHERE ID= ?";
         try{
             PreparedStatement ps = Conexion.conectar().prepareStatement(SQL);
             ps.setInt(1,id);

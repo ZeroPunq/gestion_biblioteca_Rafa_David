@@ -83,7 +83,7 @@ public class Menu {
             System.out.println("1.- Añadir Libro");
             System.out.println("2.- Ver Libros");
             System.out.println("3.- Modificar Libros");
-            System.out.println("4.- Borrar Libross");
+            System.out.println("4.- Borrar Libros");
             System.out.println("0.- Volver al menu principal");
 
             op =sc.nextInt();
