@@ -183,12 +183,12 @@ public class BibliotecaService {
     }
 
     // Método para eliminar un autor por su ID
-    public int eliminarAutor(int id) {
+    public int eliminarAutor(Autor a) {
         try {
             int resultado = 0;
-            resultado = autorDAO.delete(id);
+            resultado = autorDAO.delete(a.getID());
             if (resultado==1){
-                autores.remove(id);
+                autores.remove(a);
                 return 1;
             }
             return -1;
