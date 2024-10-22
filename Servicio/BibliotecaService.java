@@ -73,7 +73,7 @@ public class BibliotecaService {
         int resultado = 0;
         resultado = prestamoDAO.insert(p);
         if (resultado == 1) {
-            prestamos.add(p);
+            this.prestamos.add(p);
             return 1;
         }
         return -1;
@@ -83,7 +83,7 @@ public class BibliotecaService {
         int resultado = 0;
         resultado = prestamoDAO.delete(p.getID());
         if (resultado == 1) {
-            prestamos.remove(p);
+            this.prestamos.remove(p);
             return 1;
         }
         return -1;
