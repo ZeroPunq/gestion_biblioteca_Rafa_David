@@ -3,6 +3,7 @@ package Menú;
 import Clases.src.Autor;
 import Clases.src.Libro;
 import Clases.src.Prestamo;
+import Clases.src.Usuario;
 import Servicio.BibliotecaService;
 
 import java.sql.Date;
@@ -68,7 +69,7 @@ public class Menu {
                     System.out.println(bs.selectPrestamos());
                     break;
                 case 3 :
-                    System.out.println("Introduce la id del prestamo a eliminar");
+                    System.out.println("Introduce el prestamo a eliminar");
                     bs.deletePrestamo(new Prestamo(sc.nextInt(),Date.valueOf(sc.nextLine()),Date.valueOf(sc.nextLine()),sc.nextInt(), sc.nextInt()));
                     break;
                 case 0 :
@@ -114,30 +115,30 @@ public class Menu {
     public void menuUsuario(){
         int op;
         do{
-            System.out.println("Menu Libro");
-            System.out.println("1.- Añadir Prestamo");
-            System.out.println("2.- Ver Prestamos");
-            System.out.println("3.- Modificar Prestamos");
-            System.out.println("4.- Borrar Prestamos");
+            System.out.println("Menu Usuario");
+            System.out.println("1.- Añadir Usuario");
+            System.out.println("2.- Ver Usuario");
+            System.out.println("3.- Modificar Usuario");
+            System.out.println("4.- Borrar Usuarios");
             System.out.println("0.- Volver al menu principal");
 
             op =sc.nextInt();
             switch (op){
                 case 1:
 
-                    System.out.println("Inserte datos del Prestamo (ID,Fecha Inicio(YYYY-MM-DD), Fecha Fin(YYYY-MM-DD), Id Usuario , Id Libro) :");
-                    bs.insertPrestamo(new Prestamo(sc.nextInt(),Date.valueOf(sc.nextLine()),Date.valueOf(sc.nextLine()),sc.nextInt(), sc.nextInt()));
+                    System.out.println("Inserte datos del Usuario (ID,Nombre) :");
+                    bs.insertUsuario(new Usuario(sc.nextInt(), sc.nextLine()));
                     break;
                 case 2 :
-                    System.out.println(bs.selectPrestamos());
+                    System.out.println(bs.selectUsuario());
                     break;
                 case 3 :
-                    System.out.println("Introduce la id del prestamo a eliminar");
-                    bs.deletePrestamo(new Prestamo(sc.nextInt(),Date.valueOf(sc.nextLine()),Date.valueOf(sc.nextLine()),sc.nextInt(), sc.nextInt()));
+                    System.out.println("Introduce el Usuario a modificar");
+                   bs.updateUsuario(new Usuario(sc.nextInt(), sc.nextLine()));
                     break;
                 case 4:
-                    System.out.println("Introduce la id del prestamo a eliminar");
-                    bs.deletePrestamo(new Prestamo(sc.nextInt(),Date.valueOf(sc.nextLine()),Date.valueOf(sc.nextLine()),sc.nextInt(), sc.nextInt()));
+                    System.out.println("Introduce el Usuario a eliminar");
+                   bs.deleteUsuario(new Usuario(sc.nextInt(), sc.nextLine()));
                     break;
                 case 0 :
                     menu();
