@@ -45,7 +45,7 @@ public class AutorDAO {
         }
     }
     public int delete(int id){
-        String SQL = "DELETE FROM Autor WHERE id = ?";
+        String SQL = "DELETE FROM Autor WHERE ID = ?";
         try{
             PreparedStatement ps = Conexion.conectar().prepareStatement(SQL);
             ps.setInt(1,id);
@@ -60,8 +60,9 @@ public class AutorDAO {
         String SQL = "UPDATE Autor SET Nombre = ? WHERE ID = ?";
         try{
             PreparedStatement ps = Conexion.conectar().prepareStatement(SQL);
-            ps.setInt(1,a.getID());
-            ps.setString(2, a.getNombre());
+            ps.setString(1, a.getNombre());
+            ps.setInt(2,a.getID());
+            ps.execute();
             return 1;
         } catch (SQLException e) {
             throw new RuntimeException(e);
