@@ -63,6 +63,7 @@ public class Menu {
                     System.out.println("Inserte datos del Prestamo (ID,Fecha Inicio(YYYY-MM-DD), Fecha Fin(YYYY-MM-DD), Id Usuario , Id Libro) :");
                     System.out.println("ID : ");
                     int idP= sc.nextInt();
+                    sc.nextLine();
                     System.out.println("Fecha Inicio (YYYY-MM-DD) : ");
                     Date inicio = Date.valueOf(sc.nextLine());
                     System.out.println("Fecha Fin(YYYY-MM-DD) : ");

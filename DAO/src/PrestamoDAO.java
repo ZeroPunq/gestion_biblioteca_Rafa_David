@@ -36,7 +36,7 @@ public class PrestamoDAO {
             ps.setDate(2,p.getFechaInicio());
             ps.setDate(3,p.getFechaFinal());
             ps.setInt(4,p.getIdUsuario());
-            ps.setInt(4,p.getIdLibro());
+            ps.setInt(5,p.getIdLibro());
             ps.execute();
             return 1;
         }catch (SQLException e){
