@@ -1,9 +1,6 @@
 package Menú;
 
-import Clases.src.Autor;
-import Clases.src.Libro;
-import Clases.src.Prestamo;
-import Clases.src.Usuario;
+import Clases.src.*;
 import Servicio.BibliotecaService;
 
 import java.sql.Date;
@@ -181,5 +178,28 @@ public class Menu {
         }while (op!=0);
     }
 
+    public void menuLibro_Autor() {
+        int op;
+        do {
+            System.out.println("Menu Libro_Autor");
+            System.out.println("1.- Asignar un Autor a un Libro");
+            System.out.println("2.- Ver todos los Libros y sus Autores");
+            System.out.println("0.- Volver al menu principal");
 
+            op = sc.nextInt();
+            switch (op) {
+                case 1:
+
+                    System.out.println("Inserte el Libro (ID_Libro) y el Autor(ID_Autor):");
+                    bs.asignarAutorALibro(new Libro_Autor(sc.nextInt(), sc.nextInt()));
+                    break;
+                case 2:
+                    System.out.println(bs.obtenerLibrosConAutores());
+                    break;
+                case 0:
+                    menu();
+                    break;
+            }
+        } while (op != 0);
+    }
 }

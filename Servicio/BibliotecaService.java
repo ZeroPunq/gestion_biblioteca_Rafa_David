@@ -106,19 +106,26 @@ public class BibliotecaService {
     }
 
     // Método para actualizar un libro
-    public int actualizarLibro(Libro libro) {
-        try {
-            return libroDAO.update(libro);
-        } catch (RuntimeException e) {
-            System.out.println("Error al actualizar el libro: " + e.getMessage());
-            return 0;
-        }
+    public int actualizarLibro(Libro l) {
+            int resultado = 0;
+            resultado = libroDAO.update(l);
+            if (resultado ==1){
+                int indice = this.libros.indexOf(l);
+                this.libros.set(indice,l);
+                return 1;
+            }
+            return -1;
     }
-
     // Método para eliminar un libro por su ID
     public int eliminarLibro(int id) {
         try {
-            return libroDAO.delete(id);
+            int resultado = 0;
+            resultado = libroDAO.delete(id);
+            if (resultado==1){
+                libros.remove(id);
+                return 1;
+            }
+            return -1;
         } catch (RuntimeException e) {
             System.out.println("Error al eliminar el libro: " + e.getMessage());
             return 0;
@@ -168,22 +175,30 @@ public class BibliotecaService {
         }
     }
 
-    // Método para actualizar un libro
+    // Método para actualizar un autor
     public int actualizarAutor(Autor a) {
-        try {
-            return autorDAO.update(a);
-        } catch (RuntimeException e) {
-            System.out.println("Error al actualizar el autor: " + e.getMessage());
-            return 0;
+        int resultado = 0;
+        resultado = autorDAO.update(a);
+        if (resultado ==1){
+            int indice = this.autores.indexOf(a);
+            this.autores.set(indice,a);
+            return 1;
         }
+        return -1;
     }
 
-    // Método para eliminar un libro por su ID
+    // Método para eliminar un autor por su ID
     public int eliminarAutor(int id) {
         try {
-            return autorDAO.delete(id);
+            int resultado = 0;
+            resultado = autorDAO.delete(id);
+            if (resultado==1){
+                autores.remove(id);
+                return 1;
+            }
+            return -1;
         } catch (RuntimeException e) {
-            System.out.println("Error al eliminar el autor: " + e.getMessage());
+            System.out.println("Error al eliminar el libro: " + e.getMessage());
             return 0;
         }
     }
