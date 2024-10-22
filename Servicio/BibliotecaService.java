@@ -29,11 +29,11 @@ public class BibliotecaService {
         this.libroAutorDAO=new Libro_AutorDAO();
         this.libroAutors= libroAutorDAO.selectAll();
     }
-
+    //Metodo para obtener todos los usuarios
     public ArrayList<Usuario> selectUsuario() {
         return usuarios;
     }
-
+    //Metodo para añadir usuario
     public int insertUsuario(Usuario u) {
         int resultado = 0;
         resultado = usuarioDAO.insert(u);
@@ -43,7 +43,7 @@ public class BibliotecaService {
         }
         return -1;
     }
-
+    //Metodo para borrar usuarios
     public int deleteUsuario(Usuario u) {
         int resultado = 0;
         resultado = usuarioDAO.delete(u.getID());
@@ -53,7 +53,7 @@ public class BibliotecaService {
         }
         return -1;
     }
-
+    //Metodo para actualizar usuarios
     public int updateUsuario(Usuario u) {
         int resultado = 0;
         resultado = usuarioDAO.update(u);
@@ -64,26 +64,26 @@ public class BibliotecaService {
         }
         return -1;
     }
-
+    //Metodo para ver los prestamos
     public ArrayList<Prestamo> selectPrestamos() {
         return prestamos;
     }
-
+    //Metodo para crear prestamos
     public int insertPrestamo(Prestamo p) {
         int resultado = 0;
         resultado = prestamoDAO.insert(p);
         if (resultado == 1) {
-            prestamos.add(p);
+            this.prestamos.add(p);
             return 1;
         }
         return -1;
     }
-
+    //Metodo para borrar prestamos
     public int deletePrestamo(Prestamo p) {
         int resultado = 0;
         resultado = prestamoDAO.delete(p.getID());
         if (resultado == 1) {
-            prestamos.remove(p);
+            this.prestamos.remove(p);
             return 1;
         }
         return -1;
@@ -139,7 +139,6 @@ public class BibliotecaService {
 
         // Método para asignar un autor a un libro (relación muchos a muchos)
         public int asignarAutorALibro (Libro_Autor la){
-            try {
                 int resultado = 0;
                 resultado = libroAutorDAO.insert(la);
                 if (resultado == 1) {
@@ -148,10 +147,6 @@ public class BibliotecaService {
                 }
                 return -1;
 
-            } catch (RuntimeException e) {
-                System.out.println("Error al asignar el autor al libro: " + e.getMessage());
-                return 0;
-            }
         }
 
         // Método para obtener todos los libros con sus autores (usando la tabla intermedia)
