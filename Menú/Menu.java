@@ -116,7 +116,7 @@ public class Menu {
                     break;
 
                 case 4:
-                    System.out.println("Introduce la id y el título del libro a eliminar");
+                    System.out.println("Introduce la id, el título y el ISBN del libro a eliminar");
                     System.out.println("Introduce la id: ");
                     int idrl = sc.nextInt();
                     sc.nextLine();
@@ -211,8 +211,13 @@ public class Menu {
                     bs.actualizarAutor(new Autor(ida1, a1));
                     break;
                 case 4:
-                    System.out.println("Introduce la datos del autor eliminar");
-                    bs.eliminarAutor(new Autor(sc.nextInt(),sc.nextLine()));
+                    System.out.println("Introduce la ID y el nombre del autor eliminar");
+                    System.out.println("Introduce la id: ");
+                    int idra = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Introduce el Nombre: ");
+                    String Titra = sc.nextLine();
+                    bs.eliminarAutor(new Autor(idra,Titra));
                     break;
                 case 0 :
                     menu();
