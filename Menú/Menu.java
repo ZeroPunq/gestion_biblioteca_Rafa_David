@@ -73,6 +73,7 @@ public class Menu {
                     menu();
                     break;
             }
-        }
+        }while (op!=0);
     }
+
 }
