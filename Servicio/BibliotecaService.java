@@ -128,7 +128,7 @@ public class BibliotecaService {
     // Método para obtener todos los libros
     public ArrayList<Libro> obtenerLibros() {
 
-            return libros;
+        return libros;
 
 
     }
