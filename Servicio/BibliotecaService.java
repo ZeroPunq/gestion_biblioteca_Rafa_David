@@ -127,40 +127,35 @@ public class BibliotecaService {
 
     // Método para obtener todos los libros
     public ArrayList<Libro> obtenerLibros() {
-        try {
-            return libroDAO.selectAll();
-        } catch (RuntimeException e) {
-            System.out.println("Error al obtener los libros: " + e.getMessage());
-            return new ArrayList<>();
-        }
+
+            return libros;
+
+
     }
 
-    // Método para asignar un autor a un libro (relación muchos a muchos)
-    public int asignarAutorALibro(Libro_Autor la) {
-        try {
-            int resultado = 0;
-            resultado = libroAutorDAO.insert(la);
-            if(resultado == 1){
-                libroAutors.add(la);
-                return 1;
+        // Método para asignar un autor a un libro (relación muchos a muchos)
+        public int asignarAutorALibro (Libro_Autor la){
+            try {
+                int resultado = 0;
+                resultado = libroAutorDAO.insert(la);
+                if (resultado == 1) {
+                    libroAutors.add(la);
+                    return 1;
+                }
+                return -1;
+
+            } catch (RuntimeException e) {
+                System.out.println("Error al asignar el autor al libro: " + e.getMessage());
+                return 0;
             }
-            return -1;
-
-        } catch (RuntimeException e) {
-            System.out.println("Error al asignar el autor al libro: " + e.getMessage());
-            return 0;
         }
-    }
 
-    // Método para obtener todos los libros con sus autores (usando la tabla intermedia)
-    public ArrayList<Libro_Autor> obtenerLibrosConAutores() {
-        try {
-            return libroAutorDAO.selectAll(); // Devuelve los libros relacionados con autores
-        } catch (RuntimeException e) {
-            System.out.println("Error al obtener libros con autores: " + e.getMessage());
-            return new ArrayList<>();
+        // Método para obtener todos los libros con sus autores (usando la tabla intermedia)
+        public ArrayList<Libro_Autor> obtenerLibrosConAutores () {
+            return libroAutors; // Devuelve los libros relacionados con autores
         }
-    }
+
+
 }
 
 
