@@ -180,7 +180,7 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("Introduce la id del autor eliminar");
-                    bs.eliminarAutor(sc.nextInt());
+                    bs.eliminarAutor(new Autor(sc.nextInt(),sc.nextLine()));
                     break;
                 case 0 :
                     menu();
