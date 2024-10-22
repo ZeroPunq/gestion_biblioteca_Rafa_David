@@ -85,6 +85,7 @@ public class Menu {
                     Date inicior = Date.valueOf(sc.nextLine());
                     System.out.println("Fecha Fin(YYYY-MM-DD) : ");
                     Date finr = Date.valueOf(sc.nextLine());
+                    sc.nextLine();
                     System.out.println("ID Usuario : ");
                     int idrPU= sc.nextInt();
                     System.out.println("ID Libro : ");
