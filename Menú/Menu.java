@@ -140,14 +140,23 @@ public class Menu {
                 case 1:
 
                     System.out.println("Inserte datos del Usuario (ID,Nombre) :");
-                    bs.insertUsuario(new Usuario(sc.nextInt(), sc.nextLine()));
+                    System.out.println("ID : ");
+                    int idU= sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Nombre : ");
+                    String nmbU = sc.nextLine();
+                    bs.insertUsuario(new Usuario(idU,nmbU));
                     break;
                 case 2 :
                     System.out.println(bs.selectUsuario());
                     break;
                 case 3 :
-                    System.out.println("Introduce el Usuario a modificar");
-                   bs.updateUsuario(new Usuario(sc.nextInt(), sc.nextLine()));
+                    System.out.println("Introduce el ID del Usuario a modificar");
+                    int idU1= sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Nuevo nombre");
+                    String nmbNu = sc.nextLine();
+                    bs.updateUsuario(new Usuario(idU1, nmbNu));
                     break;
                 case 4:
                     System.out.println("Introduce el Usuario a eliminar");
@@ -194,7 +203,7 @@ public class Menu {
                     bs.actualizarAutor(new Autor(ida1, a1));
                     break;
                 case 4:
-                    System.out.println("Introduce la id del autor eliminar");
+                    System.out.println("Introduce la datos del autor eliminar");
                     bs.eliminarAutor(new Autor(sc.nextInt(),sc.nextLine()));
                     break;
                 case 0 :
