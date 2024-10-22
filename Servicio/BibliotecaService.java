@@ -83,7 +83,7 @@ public class BibliotecaService {
         int resultado = 0;
         resultado = prestamoDAO.delete(p.getID());
         if (resultado == 1) {
-            this.prestamos.remove(p);
+            prestamos.remove(p);
             return 1;
         }
         return -1;

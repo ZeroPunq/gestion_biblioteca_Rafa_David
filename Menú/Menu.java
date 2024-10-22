@@ -80,6 +80,7 @@ public class Menu {
                 case 3 :
                     System.out.println("Introduce el prestamo a eliminar"); System.out.println("ID : ");
                     int idrP= sc.nextInt();
+                    sc.nextLine();
                     System.out.println("Fecha Inicio (YYYY-MM-DD) : ");
                     Date inicior = Date.valueOf(sc.nextLine());
                     System.out.println("Fecha Fin(YYYY-MM-DD) : ");
