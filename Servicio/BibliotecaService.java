@@ -184,18 +184,14 @@ public class BibliotecaService {
 
     // Método para eliminar un autor por su ID
     public int eliminarAutor(Autor a) {
-        try {
+
             int resultado = 0;
             resultado = autorDAO.delete(a.getID());
-            if (resultado==1){
+            if (resultado == 1) {
                 autores.remove(a);
                 return 1;
             }
             return -1;
-        } catch (RuntimeException e) {
-            System.out.println("Error al eliminar el libro: " + e.getMessage());
-            return 0;
-        }
     }
 
     // Método para obtener todos los libros
