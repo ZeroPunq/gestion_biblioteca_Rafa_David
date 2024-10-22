@@ -61,14 +61,33 @@ public class Menu {
                 case 1:
 
                     System.out.println("Inserte datos del Prestamo (ID,Fecha Inicio(YYYY-MM-DD), Fecha Fin(YYYY-MM-DD), Id Usuario , Id Libro) :");
-                    bs.insertPrestamo(new Prestamo(sc.nextInt(),Date.valueOf(sc.nextLine()),Date.valueOf(sc.nextLine()),sc.nextInt(), sc.nextInt()));
+                    System.out.println("ID : ");
+                    int idP= sc.nextInt();
+                    System.out.println("Fecha Inicio (YYYY-MM-DD) : ");
+                    Date inicio = Date.valueOf(sc.nextLine());
+                    System.out.println("Fecha Fin(YYYY-MM-DD) : ");
+                    Date fin = Date.valueOf(sc.nextLine());
+                    System.out.println("ID Usuario : ");
+                    int idPU= sc.nextInt();
+                    System.out.println("ID Libro : ");
+                    int idPL = sc.nextInt();
+                    bs.insertPrestamo(new Prestamo(idP,inicio,fin,idPU,idPL));
                     break;
                 case 2 :
                     System.out.println(bs.selectPrestamos());
                     break;
                 case 3 :
-                    System.out.println("Introduce el prestamo a eliminar");
-                    bs.deletePrestamo(new Prestamo(sc.nextInt(),Date.valueOf(sc.nextLine()),Date.valueOf(sc.nextLine()),sc.nextInt(), sc.nextInt()));
+                    System.out.println("Introduce el prestamo a eliminar"); System.out.println("ID : ");
+                    int idrP= sc.nextInt();
+                    System.out.println("Fecha Inicio (YYYY-MM-DD) : ");
+                    Date inicior = Date.valueOf(sc.nextLine());
+                    System.out.println("Fecha Fin(YYYY-MM-DD) : ");
+                    Date finr = Date.valueOf(sc.nextLine());
+                    System.out.println("ID Usuario : ");
+                    int idrPU= sc.nextInt();
+                    System.out.println("ID Libro : ");
+                    int idrPL = sc.nextInt();
+                    bs.deletePrestamo(new Prestamo(idrP,inicior,finr,idrPU,idrPL));
                     break;
                 case 0 :
                     menu();
@@ -159,16 +178,21 @@ public class Menu {
                     System.out.println(bs.selectUsuario());
                     break;
                 case 3 :
-                    System.out.println("Introduce el ID del Usuario a modificar: ");
+                    System.out.println("Introduce el ID del Usuario a modificar");
                     int idU1= sc.nextInt();
                     sc.nextLine();
-                    System.out.println("Nuevo nombre: ");
+                    System.out.println("Nuevo nombre");
                     String nmbNu = sc.nextLine();
                     bs.updateUsuario(new Usuario(idU1, nmbNu));
                     break;
                 case 4:
-                    System.out.println("Introduce el Usuario a eliminar: ");
-                   bs.deleteUsuario(new Usuario(sc.nextInt(), sc.nextLine()));
+                    System.out.println("Introduce el Usuario a eliminar");
+                    System.out.println("Introduce la id: ");
+                    int idru = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Introduce el Nombre: ");
+                    String Titru = sc.nextLine();
+                    bs.deleteUsuario(new Usuario(idru,Titru));
                     break;
                 case 0 :
                     menu();
@@ -191,10 +215,10 @@ public class Menu {
                 case 1:
 
                     System.out.println("Inserte datos del Autor(ID, Nombre) :");
-                    System.out.println("ID:");
+                    System.out.println("ID");
                     int ida = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("Nombre:");
+                    System.out.println("Nombre");
                     String a =sc.nextLine();
                     bs.agregarAutor(new Autor(ida,a));
                     break;
@@ -203,10 +227,10 @@ public class Menu {
                     break;
                 case 3 :
                     System.out.println("Introduce los datos a modificar. (ID y Nombre)");
-                    System.out.println("ID:");
+                    System.out.println("ID");
                     int ida1 = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("Nombre:");
+                    System.out.println("Nombre");
                     String a1 =sc.nextLine();
                     bs.actualizarAutor(new Autor(ida1, a1));
                     break;
