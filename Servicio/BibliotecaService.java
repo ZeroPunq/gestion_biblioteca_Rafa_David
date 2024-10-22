@@ -127,10 +127,7 @@ public class BibliotecaService {
 
     // Método para obtener todos los libros
     public ArrayList<Libro> obtenerLibros() {
-
-        return libros;
-
-
+            return libros;
     }
 
         // Método para asignar un autor a un libro (relación muchos a muchos)
@@ -155,7 +152,46 @@ public class BibliotecaService {
             return libroAutors; // Devuelve los libros relacionados con autores
         }
 
+    // Método para agregar un nuevo autor
+    public int agregarAutor(Autor a) {
+        try {
+            int resultado = 0;
+            resultado = autorDAO.insert(a);
+            if(resultado==1){
+                autores.add(a);
+                return 1;
+            }
+            return -1;
+        } catch (RuntimeException e) {
+            System.out.println("Error al agregar el autor: " + e.getMessage());
+            return 0;
+        }
+    }
 
+    // Método para actualizar un libro
+    public int actualizarAutor(Autor a) {
+        try {
+            return autorDAO.update(a);
+        } catch (RuntimeException e) {
+            System.out.println("Error al actualizar el autor: " + e.getMessage());
+            return 0;
+        }
+    }
+
+    // Método para eliminar un libro por su ID
+    public int eliminarAutor(int id) {
+        try {
+            return autorDAO.delete(id);
+        } catch (RuntimeException e) {
+            System.out.println("Error al eliminar el autor: " + e.getMessage());
+            return 0;
+        }
+    }
+
+    // Método para obtener todos los libros
+    public ArrayList<Autor> obtenerAutores() {
+        return autores;
+    }
 }
 
 
