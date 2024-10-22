@@ -1,4 +1,4 @@
-//Autores. David Brasero y Rafael Haro.
+//Autores: David Brasero y Rafael Haro.
 
 
 import Menú.Menu;
