@@ -118,7 +118,7 @@ public class BibliotecaService {
     }
     // Método para eliminar un libro por su ID
     public int eliminarLibro(Libro l) {
-        try {
+
             int resultado = 0;
             resultado = libroDAO.delete(l.getID());
             if (resultado==1){
@@ -126,10 +126,6 @@ public class BibliotecaService {
                 return 1;
             }
             return -1;
-        } catch (RuntimeException e) {
-            System.out.println("Error al eliminar el libro: " + e.getMessage());
-            return 0;
-        }
     }
 
     // Método para obtener todos los libros

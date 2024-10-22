@@ -108,8 +108,16 @@ public class Menu {
                     bs.actualizarLibro(new Libro(sc.nextInt(),sc.nextLine(),sc.nextLine()));
                     break;
                 case 4:
-                    System.out.println("Introduce la id del libro a eliminar");
-                    bs.eliminarLibro(new Libro(sc.nextInt(),sc.nextLine(),sc.nextLine()));
+                    System.out.println("Introduce la id y el título del libro a eliminar");
+                    System.out.println("Introduce la id: ");
+                    int idrl = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Introduce el Titulo: ");
+                    String Titrl = sc.nextLine();
+                    System.out.println("Introduce el ISBN: ");
+                    String ISBNrl = sc.nextLine();
+
+                    bs.eliminarLibro(new Libro(idrl,Titrl,ISBNrl));
                     break;
                 case 0 :
                     menu();
