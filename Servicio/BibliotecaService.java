@@ -48,7 +48,13 @@ public class BibliotecaService {
         int resultado = 0;
         resultado = usuarioDAO.delete(u.getID());
         if (resultado == 1) {
-            this.usuarios.remove(u);
+            usuarios.remove(u);
+            for (int i = prestamos.size() - 1; i >= 0; i--) {
+                Prestamo p = prestamos.get(i);
+                if (p.getIdUsuario() == u.getID()) {
+                    prestamos.remove(i); // Eliminar el préstamo de la lista en memoria
+                }
+            }
             return 1;
         }
         return -1;
@@ -123,6 +129,13 @@ public class BibliotecaService {
             resultado = libroDAO.delete(l.getID());
             if (resultado==1){
                 libros.remove(l);
+
+                for (int i = prestamos.size() - 1; i >= 0; i--) {
+                    Prestamo p = prestamos.get(i);
+                    if (p.getIdLibro() == l.getID()) {
+                        prestamos.remove(i);
+                    }
+                }
                 return 1;
             }
             return -1;
