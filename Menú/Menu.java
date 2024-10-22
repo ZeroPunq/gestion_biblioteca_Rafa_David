@@ -3,6 +3,7 @@ package Menú;
 import Clases.src.Prestamo;
 import Servicio.BibliotecaService;
 
+import java.sql.Date;
 import java.util.Scanner;
 
 public class Menu {
@@ -57,7 +58,20 @@ public class Menu {
             op =sc.nextInt();
             switch (op){
                 case 1:
-                    bs.insertPrestamo(new Prestamo(sc.nextInt(),sc.next))
+
+                    System.out.println("Inserte datos del Prestamo (ID,Fecha Inicio(YYYY-MM-DD), Fecha Fin(YYYY-MM-DD), Id Usuario , Id Libro) :");
+                    bs.insertPrestamo(new Prestamo(sc.nextInt(),Date.valueOf(sc.nextLine()),Date.valueOf(sc.nextLine()),sc.nextInt(), sc.nextInt()));
+                    break;
+                case 2 :
+                    System.out.println(bs.selectPrestamos());
+                    break;
+                case 3 :
+                    System.out.println("Introduce la id del prestamo a eliminar");
+                    bs.deletePrestamo(new Prestamo(sc.nextInt(),Date.valueOf(sc.nextLine()),Date.valueOf(sc.nextLine()),sc.nextInt(), sc.nextInt()));
+                    break;
+                case 0 :
+                    menu();
+                    break;
             }
         }
     }
