@@ -216,10 +216,10 @@ public class Menu {
                 case 1:
 
                     System.out.println("Inserte datos del Autor(ID, Nombre) :");
-                    System.out.println("ID");
+                    System.out.println("ID: ");
                     int ida = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("Nombre");
+                    System.out.println("Nombre: ");
                     String a =sc.nextLine();
                     bs.agregarAutor(new Autor(ida,a));
                     break;
@@ -228,10 +228,10 @@ public class Menu {
                     break;
                 case 3 :
                     System.out.println("Introduce los datos a modificar. (ID y Nombre)");
-                    System.out.println("ID");
+                    System.out.println("ID:");
                     int ida1 = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("Nombre");
+                    System.out.println("Nombre: ");
                     String a1 =sc.nextLine();
                     bs.actualizarAutor(new Autor(ida1, a1));
                     break;
@@ -264,7 +264,11 @@ public class Menu {
                 case 1:
 
                     System.out.println("Inserte el Libro (ID_Libro) y el Autor(ID_Autor):");
-                    bs.asignarAutorALibro(new Libro_Autor(sc.nextInt(), sc.nextInt()));
+                    System.out.println("Inserte el ID del Libro: ");
+                    int idLib = sc.nextInt();
+                    System.out.println("Inserte el ID del Autor: ");
+                    int idAut = sc.nextInt();
+                    bs.asignarAutorALibro(new Libro_Autor(idLib,idAut));
                     break;
                 case 2:
                     System.out.println(bs.obtenerLibrosConAutores());
