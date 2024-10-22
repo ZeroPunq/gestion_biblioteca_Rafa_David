@@ -49,7 +49,7 @@ public class AutorDAO {
         try{
             PreparedStatement ps = Conexion.conectar().prepareStatement(SQL);
             ps.setInt(1,id);
-            ps.setString(1,"nombre");
+            ps.setString(2,"nombre");
             ps.execute();
             return 1;
         } catch (SQLException e) {
