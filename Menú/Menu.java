@@ -1,5 +1,6 @@
 package Menú;
 
+import Clases.src.Prestamo;
 import Servicio.BibliotecaService;
 
 import java.util.Scanner;
@@ -37,7 +38,27 @@ public class Menu {
                 case 5 :
                     menuLibro_Autor();
                     break;
+                case 0 :
+                    System.out.println("Saliendo...");
+                    break;
             }
         }while(op!=0);
+    }
+
+    public void menuPrestamo(){
+        int op;
+        do{
+            System.out.println("Menu Prestamo");
+            System.out.println("1.- Añadir Prestamo");
+            System.out.println("2.- Ver Prestamos");
+            System.out.println("3.- Borrar Prestamos");
+            System.out.println("0.- Volver al menu principal");
+
+            op =sc.nextInt();
+            switch (op){
+                case 1:
+                    bs.insertPrestamo(new Prestamo(sc.nextInt(),sc.next))
+            }
+        }
     }
 }
