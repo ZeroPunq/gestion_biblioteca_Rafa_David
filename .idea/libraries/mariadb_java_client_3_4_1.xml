@@ -2,6 +2,7 @@
   <library name="mariadb-java-client-3.4.1">
     <CLASSES>
       <root url="jar://$USER_HOME$/Descargas/mariadb-java-client-3.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Acceso a datos/Driver/mariadb-java-client-3.4.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -20,7 +20,7 @@ public class Libro_AutorDAO {
             ResultSet rs = ps.getResultSet();
             libros_autores = new ArrayList<Libro_Autor>();
             while(rs.next()){
-                Libro_Autor la = new Libro_Autor(rs.getInt("ID"), rs.getInt("ID"));
+                Libro_Autor la = new Libro_Autor(rs.getInt("idLibro"), rs.getInt("idAutor"));
                 libros_autores.add(la);
             }
             return libros_autores;
