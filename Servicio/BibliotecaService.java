@@ -92,7 +92,13 @@ public class BibliotecaService {
     // Método para agregar un nuevo libro
     public int agregarLibro(Libro libro) {
         try {
-            return libroDAO.insert(libro);
+            int resultado = 0;
+            resultado = libroDAO.insert(libro);
+            if(resultado==1){
+                libros.add(libro);
+                return 1;
+            }
+            return -1;
         } catch (RuntimeException e) {
             System.out.println("Error al agregar el libro: " + e.getMessage());
             return 0;
@@ -130,9 +136,16 @@ public class BibliotecaService {
     }
 
     // Método para asignar un autor a un libro (relación muchos a muchos)
-    public int asignarAutorALibro(int idLibro, int idAutor) {
+    public int asignarAutorALibro(Libro_Autor la) {
         try {
-            return Libro_AutorDAO.insert(new Libro(idLibro, "", ""));
+            int resultado = 0;
+            resultado = libroAutorDAO.insert(la);
+            if(resultado == 1){
+                libroAutors.add(la);
+                return 1;
+            }
+            return -1;
+
         } catch (RuntimeException e) {
             System.out.println("Error al asignar el autor al libro: " + e.getMessage());
             return 0;
