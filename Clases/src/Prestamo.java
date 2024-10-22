@@ -77,6 +77,8 @@ public class Prestamo {
                 "ID=" + ID +
                 ", fechaInicio=" + fechaInicio +
                 ", fechaFinal=" + fechaFinal +
+                ", idUsuario=" + idUsuario +
+                ", idLibro=" + idLibro +
                 '}';
     }
 }
