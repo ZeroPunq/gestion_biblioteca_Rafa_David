@@ -1,8 +1,10 @@
 package Servicio;
 
 import Clases.src.*;
-import DAO.src.*;
-
+import DAO.src.AutorDAO;
+import DAO.src.LibroDAO;
+import DAO.src.PrestamoDAO;
+import DAO.src.UsuarioDAO;
 import java.util.ArrayList;
 
 public class BibliotecaService {
@@ -14,8 +16,7 @@ public class BibliotecaService {
     public ArrayList<Prestamo> prestamos;
     public UsuarioDAO usuarioDAO;
     public ArrayList<Usuario> usuarios;
-    public Libro_AutorDAO libroAutorDAO;
-    public ArrayList<Libro_Autor>libroAutors;
+
     public BibliotecaService() {
         this.autorDAO = new AutorDAO();
         this.autores = autorDAO.selectAll();
@@ -25,62 +26,66 @@ public class BibliotecaService {
         this.prestamos = prestamoDAO.selectAll();
         this.usuarioDAO = new UsuarioDAO();
         this.usuarios = usuarioDAO.selectAll();
-        this.libroAutorDAO= new Libro_AutorDAO();
-        this.libroAutors= libroAutorDAO.selectAll();
     }
-    public ArrayList<Usuario> selectUsuario(){
+
+    public ArrayList<Usuario> selectUsuario() {
         return usuarios;
     }
 
-    public int insertUsuario(Usuario u){
+    public int insertUsuario(Usuario u) {
         int resultado = 0;
         resultado = usuarioDAO.insert(u);
-        if(resultado == 1) {
+        if (resultado == 1) {
             this.usuarios.add(u);
             return 1;
         }
         return -1;
     }
-    public int deleteUsuario(Usuario u){
+
+    public int deleteUsuario(Usuario u) {
         int resultado = 0;
-        resultado= usuarioDAO.delete(u.getID());
-        if(resultado == 1){
+        resultado = usuarioDAO.delete(u.getID());
+        if (resultado == 1) {
             this.usuarios.remove(u);
             return 1;
         }
         return -1;
     }
-    public int updateUsuario(Usuario u){
+
+    public int updateUsuario(Usuario u) {
         int resultado = 0;
         resultado = usuarioDAO.update(u);
-        if(resultado == 1){
+        if (resultado == 1) {
             int indice = this.usuarios.indexOf(u);
-            this.usuarios.set(indice,u);
+            this.usuarios.set(indice, u);
             return 1;
         }
         return -1;
     }
-    public ArrayList<Prestamo> selectPrestamos(){
+
+    public ArrayList<Prestamo> selectPrestamos() {
         return prestamos;
     }
 
-    public int insertPrestamo(Prestamo p){
+    public int insertPrestamo(Prestamo p) {
         int resultado = 0;
-        resultado= prestamoDAO.insert(p);
-        if(resultado==1){
+        resultado = prestamoDAO.insert(p);
+        if (resultado == 1) {
             prestamos.add(p);
             return 1;
         }
         return -1;
     }
 
-    public int deletePrestamo(Prestamo p){
+    public int deletePrestamo(Prestamo p) {
         int resultado = 0;
         resultado = prestamoDAO.delete(p.getID());
-        if(resultado==1){
+        if (resultado == 1) {
             prestamos.remove(p);
             return 1;
         }
         return -1;
     }
 }
+
+
