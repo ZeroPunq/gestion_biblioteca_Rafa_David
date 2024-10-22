@@ -117,12 +117,12 @@ public class BibliotecaService {
             return -1;
     }
     // Método para eliminar un libro por su ID
-    public int eliminarLibro(int id) {
+    public int eliminarLibro(Libro l) {
         try {
             int resultado = 0;
-            resultado = libroDAO.delete(id);
+            resultado = libroDAO.delete(l.getID());
             if (resultado==1){
-                libros.remove(id);
+                libros.remove(l);
                 return 1;
             }
             return -1;
