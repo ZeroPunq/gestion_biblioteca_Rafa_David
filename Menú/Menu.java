@@ -159,15 +159,15 @@ public class Menu {
                     System.out.println(bs.selectUsuario());
                     break;
                 case 3 :
-                    System.out.println("Introduce el ID del Usuario a modificar");
+                    System.out.println("Introduce el ID del Usuario a modificar: ");
                     int idU1= sc.nextInt();
                     sc.nextLine();
-                    System.out.println("Nuevo nombre");
+                    System.out.println("Nuevo nombre: ");
                     String nmbNu = sc.nextLine();
                     bs.updateUsuario(new Usuario(idU1, nmbNu));
                     break;
                 case 4:
-                    System.out.println("Introduce el Usuario a eliminar");
+                    System.out.println("Introduce el Usuario a eliminar: ");
                    bs.deleteUsuario(new Usuario(sc.nextInt(), sc.nextLine()));
                     break;
                 case 0 :
