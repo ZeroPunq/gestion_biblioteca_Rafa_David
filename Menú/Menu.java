@@ -102,7 +102,7 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("Introduce la id del libro a eliminar");
-                    bs.eliminarLibro(sc.nextInt());
+                    bs.eliminarLibro(new Libro(sc.nextInt(),sc.nextLine(),sc.nextLine()));
                     break;
                 case 0 :
                     menu();
