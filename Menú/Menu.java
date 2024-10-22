@@ -4,6 +4,7 @@ import Clases.src.*;
 import Servicio.BibliotecaService;
 
 import java.sql.Date;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Menu {
@@ -158,14 +159,24 @@ public class Menu {
                 case 1:
 
                     System.out.println("Inserte datos del Autor(ID, Nombre) :");
-                    bs.agregarAutor(new Autor(sc.nextInt(),sc.nextLine()));
+                    System.out.println("ID");
+                    int ida = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Nombre");
+                    String a =sc.nextLine();
+                    bs.agregarAutor(new Autor(ida,a));
                     break;
                 case 2 :
                     System.out.println(bs.obtenerAutores());
                     break;
                 case 3 :
                     System.out.println("Introduce los datos a modificar. (ID y Nombre)");
-                    bs.actualizarAutor(new Autor(sc.nextInt(), sc.nextLine()));
+                    System.out.println("ID");
+                    int ida1 = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Nombre");
+                    String a1 =sc.nextLine();
+                    bs.actualizarAutor(new Autor(ida1, a1));
                     break;
                 case 4:
                     System.out.println("Introduce la id del autor eliminar");
