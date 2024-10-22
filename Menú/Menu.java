@@ -239,7 +239,11 @@ public class Menu {
                 case 1:
 
                     System.out.println("Inserte el Libro (ID_Libro) y el Autor(ID_Autor):");
-                    bs.asignarAutorALibro(new Libro_Autor(sc.nextInt(), sc.nextInt()));
+                    System.out.println("Inserte el ID del Libro: ");
+                    int idLib = sc.nextInt();
+                    System.out.println("Inserte el ID del Autor: ");
+                    int idAut = sc.nextInt();
+                    bs.asignarAutorALibro(new Libro_Autor(idLib,idAut));
                     break;
                 case 2:
                     System.out.println(bs.obtenerLibrosConAutores());
